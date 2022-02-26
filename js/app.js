@@ -27,15 +27,19 @@ btn.addEventListener("click", () => {
         guessInput.disabled = true;
         guessInput.style.border = "1px solid green";
         setMessage(`You are win ${winNumber}`, "green");
+
         btn.textContent="New game";
         btn.style.backgroundColor="blue";
         btn.addEventListener('click', () => window.location.reload());
+
     } else if (guess !== winNumber) {
-        setMessage(`You guess ${guess} is false `, "red");
         trying--;
+        setMessage(`You guess ${guess} is false, you have ${trying} tryings `, "red");
+       
         if(trying==0){
             guessInput.disabled = true;
-            setMessage(`You fail, time is over! You guess ${guess} is false `, "red");
+            setMessage(`You fail, time is over! You guess ${guess} is false, right is ${winNumber} `, "red");
+
             btn.textContent="New game";
             btn.style.backgroundColor="blue";
             btn.addEventListener('click', () => window.location.reload());
